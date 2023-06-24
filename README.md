@@ -1,3 +1,4 @@
+![Alt text](relative%20path/to/img.jpg?raw=true "Title")
 # pdf2audio
 
 > Convert your PDF file into an audio (mp3) file with pdf language detection
