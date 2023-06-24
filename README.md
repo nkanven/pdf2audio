@@ -1,2 +1,3 @@
 # pdf2audio
-Convert your PDF file into an audio (mp3) file
+
+Convert your PDF file into an audio (mp3) file with pdf language detection
