@@ -45,7 +45,7 @@ How does one go about using it?
 
 - You can convert any pdf file every easily by typing :
 
-`python PATH_TO_PACKAGE_DIR/main.py PATH_T0_PDF_FILE`
+`python main.py PATH_T0_PDF_FILE`
 
 - This will generate the PATH_T0_PDF_FILE.mp3 file.
 
