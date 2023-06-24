@@ -1,10 +1,19 @@
+import sys
 import PyPDF3
 import pyttsx3
 import pdfplumber
 from langdetect import detect
 
-file = "cv-Anselme.pdf"
-book = open(file, "rb")
+if len(sys.argv) < 2:
+    sys.exit("Wrong/No parameters given")
+
+file = sys.argv[1]
+
+try:
+    book = open(file, "rb")
+except (FileNotFoundError, FileExistsError):
+    sys.exit('File ' + file + ' does not exist or found')
+
 pdfReader = PyPDF3.PdfFileReader(book)
 print(pdfReader.getDocumentInfo())
 pages = pdfReader.numPages
@@ -23,6 +32,7 @@ if lang == "en":
     lang = "EN-US"
 else:
     lang = "FR-FR"
+
 
 def convert():
     engine = pyttsx3.init()
