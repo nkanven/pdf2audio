@@ -58,6 +58,8 @@ Project is: _in progress_ I am continously adding features and updating the pack
 
 Room for improvement:
 - Upload the package to Pypi
+- Optimize voices according to pdf language
+- Add more parameters like voice speed for easy user manipulation
 - Make it run in pycharm environment without error
 - Add Flask for website deployment to be used freely online
 
