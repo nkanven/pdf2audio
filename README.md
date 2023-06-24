@@ -43,7 +43,7 @@ Launch the module with
 ## Usage
 How does one go about using it?
 
-- You can convert any pdf file every easily by typing :
+- You can convert any pdf file every easily from the project base directory by typing :
 
 `python main.py PATH_T0_PDF_FILE`
 
