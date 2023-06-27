@@ -163,3 +163,4 @@ cython_debug/
 # file extension
 *.mp3
 *.pdf
+*.sqlite3
