@@ -1,3 +1,4 @@
+"""
 import sys
 import PyPDF3
 import pyttsx3
@@ -51,3 +52,9 @@ def convert():
 
 
 convert()
+"""
+
+from rest.converter import Convert
+
+converter = Convert()
+converter.make_audio()

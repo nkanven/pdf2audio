@@ -1,6 +1,7 @@
 from rest_framework import generics, views, status
 from rest_framework.parsers import FileUploadParser
 from rest_framework.response import Response
+from rest.converter import Convert
 from api import settings
 import os
 
@@ -20,8 +21,8 @@ class FileUploadView(views.APIView):
                 os.mkdir(specific_folder)
 
             f_path = specific_folder+os.sep+file_obj.name+"."+file_ext
-            f_url = settings.BASE_URL + settings.MEDIA_URL + file_ext + \
-                "/" + file_obj.name+"."+file_ext
+            audio_url = settings.BASE_URL + settings.MEDIA_URL + "mp3" + \
+                "/" + file_obj.name+".mp3"
 
             destination = open(f_path, 'wb+')
 
@@ -29,6 +30,10 @@ class FileUploadView(views.APIView):
                 destination.write(chunk)
             destination.close()
 
-            return Response(f_url, status=status.HTTP_201_CREATED)
+            convert = Convert(origin="web")
+            if convert.make_audio(f_path, filename) == status.HTTP_500_INTERNAL_SERVER_ERROR:
+                raise Exception
+
+            return Response(audio_url, status=status.HTTP_201_CREATED)
         except Exception as e:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response(e, status=status.HTTP_400_BAD_REQUEST)
